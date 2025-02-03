@@ -75,7 +75,7 @@ export const ChatProvider = ({ children }: { children: ReactNode }) => {
             setTyping(true); // Show typing indicator
     
             try {
-                const response = await chatWithGroq(content,chatbot); // Get AI response
+                const response = await chatWithGroq(content,chatbot,state.messages); // Get AI response
                 dispatch({ type: "ADD_MESSAGE", payload: { role: "assistant", content: response,chatbot } });
             } catch (error) {
                 console.error("Error fetching AI response:", error);
