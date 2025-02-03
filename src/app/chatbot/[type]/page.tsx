@@ -13,6 +13,7 @@ import { useParams } from "next/navigation";
 import { features } from "@/constants";
 import GradientText from "@/components/global/grdient-text";
 import Link from "next/link";
+import ReactMarkdown from "react-markdown";
 
 export default function ChatInterface() {
   const { type } = useParams();
@@ -74,7 +75,7 @@ export default function ChatInterface() {
                       : "bg-zinc-800 text-gray-100"
                   )}
                 >
-                  {message.content}
+                  {message.role==='user'?message.content: (<ReactMarkdown>{message.content}</ReactMarkdown>)}
                 </div>
               </div>
             ))}

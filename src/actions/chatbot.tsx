@@ -5,24 +5,39 @@ import { OpenAI } from "openai";
 
 // Initialize Groq API with the correct base URL
 const groq = new OpenAI({
-  apiKey: process.env.GROQ_API_KEY, // Ensure this is correctly set in your environment variables
+  apiKey: process.env.GROQ_API_KEY!, // Ensure this is correctly set in your environment variables
   baseURL: "https://api.groq.com/openai/v1", // ✅ Corrected API base URL
 });
 
+interface ChatMessage {
+  role: "user" | "assistant";
+  content: string;
+}
+
+
+
 // Server Action for Chatbot
-export async function chatWithGroq(userMessage: string, chatbot: string) {
+export async function chatWithGroq(
+  userMessage: string,
+  chatbot: string,
+  history: ChatMessage[] // ✅ Explicitly define history as an array of ChatMessage
+) {
   try {
-    // Define system prompt for AI behavior
-    const list = features.find((f) => f.href === `${chatbot}`)
-    console.log(list);
-    
-    const systemPrompt = list?.prompt || ITR_FORM_RECOMMENDATION ;
+    // Find the chatbot prompt from features list
+    const feature = features.find((f) => f.href === chatbot);
+
+    // Ensure prompt exists; fallback to default
+    const systemPrompt = feature?.prompt || ITR_FORM_RECOMMENDATION;
+
+    // Filter out unsupported properties from history
+    const cleanedHistory = history.map(({ role, content }) => ({ role, content }));
 
     // Make API request to Groq AI
     const response = await groq.chat.completions.create({
       model: "mixtral-8x7b-32768", // Use a supported Groq model
       messages: [
         { role: "system", content: systemPrompt },
+        ...cleanedHistory, // ✅ Send only role & content
         { role: "user", content: userMessage },
       ],
       temperature: 0.7,
