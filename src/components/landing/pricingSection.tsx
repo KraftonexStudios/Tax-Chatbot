@@ -5,9 +5,8 @@ import { Card, CardDescription, CardTitle } from "@/components/ui/card";
 import { Check } from "lucide-react";
 import Link from "next/link";
 
-type Props = {};
 
-export const PricingSection = (props: Props) => {
+export const PricingSection = () => {
   return (
     <div className="w-full  flex flex-col items-center gap-3" id="pricing">
       <BackdropGradient className="w-8/12 h-full opacity-40 flex flex-col justify-center items-center">

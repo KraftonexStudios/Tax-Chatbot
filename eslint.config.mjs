@@ -62,6 +62,9 @@ const eslintConfig = [
       "no-restricted-types": "off",
       "no-restricted-variables": "off",
       "no-restricted-warnings": "off",
+      "no-explicit-any": "off",
+      "@typescript-eslint/no-explicit-any": "off",
+
     },
   },
 ];

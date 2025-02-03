@@ -3,9 +3,8 @@ import { Button } from "@/components/ui/button"
 import { BadgePlus } from "lucide-react"
 import Link from "next/link"
 
-type Props = {}
 
-const CallToAction = (props: Props) => {
+const CallToAction = () => {
   return (
     <div className="flex flex-col items-start md:items-center gap-y-5 md:gap-y-0">
       <GradientText

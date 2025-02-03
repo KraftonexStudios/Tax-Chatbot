@@ -31,7 +31,7 @@ export default function ChatInterface() {
 
   useEffect(() => {
     scrollToBottom();
-  }, [messages, messagesEndRef]); // Added messagesEndRef to dependencies
+  }, [messages, messagesEndRef,]); // Added messagesEndRef to dependencies
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
