@@ -91,3 +91,8 @@ body {
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+@layer utilities {
+  .bg-grid-pattern {
+    mask-image: radial-gradient(circle, white 0%, transparent 80%);
+  }
+}

@@ -1,4 +1,14 @@
-import { Calculator, CheckCircle, FileText, LucideIcon, PiggyBank, TrendingUp } from "lucide-react";
+import {
+  Calculator,
+  CheckCircle,
+  FileText,
+  LucideIcon,
+  PiggyBank,
+  TrendingUp,
+  Home,
+  CreditCard,
+  BotIcon,
+} from "lucide-react";
 
 const ITR_FORM_RECOMMENDATION = `You are a tax assistant chatbot, helping individuals determine which Income Tax Return (ITR) form they should file based on their income sources and tax-related details. You must ask the user a series of questions to gather necessary information and provide a suitable ITR form suggestion.
 
@@ -62,7 +72,6 @@ The calculation should take into account any rebates (e.g., Section 87A) and pro
  most important keep launguage simple and give clear and concise information in short until user not demand full info,
  insted directly asking full info first greet and introduce you and responce in short and clear way]`;
 
-
 const DEDUCTION_ELIGIBILITY_CHECK = `Determine the eligible tax deductions an individual can claim for the current assessment year. The user has the following details:
 Investments in PPF, ELSS, etc. (under section 80C)
 Medical insurance premiums (under section 80D)
@@ -101,64 +110,84 @@ const faqs: { id: number; question: string }[] = [
   { id: 10, question: "What happens if I don’t file my ITR?" },
 ];
 
-
-
-
-
 export interface Feature {
-   label: string
-   routeId: string
-   icon: LucideIcon
- }
- 
+  label: string;
+  routeId: string;
+  icon: LucideIcon;
+}
 
- const features = [
-   {
-     icon: <FileText className="w-6 h-6 text-white" />,
-     title: "ITR Form Recommendation",
-     description: "Get personalized recommendations for your Income Tax Return forms",
-     href: "/itr-form-recommendation",
-     prompt: ITR_FORM_RECOMMENDATION
-   },
-   {
-     icon: <PiggyBank className="w-6 h-6 text-white" />,
-     title: "Tax Saving Investment",
-     description: "Discover the best tax-saving investment options for your profile",
-     href: "/tax-saving-investment-recommendation",
-     prompt: TAX_SAVING_INVESTMETN_RECOMMENDATION
-   },
-   {
-     icon: <Calculator className="w-6 h-6 text-white" />,
-     title: "Tax Liability Calculation",
-     description: "Calculate your tax liability accurately with our AI assistant",
-     href: "/tax-liability-calculation",
-      prompt: TAX_LIABILITY_CALCULATION
-   },
-   {
-     icon: <CheckCircle className="w-6 h-6 text-white" />,
-     title: "Deduction Eligibility Check",
-     description: "Check your eligibility for various tax deductions and exemptions",
-     href: "/deduction-eligibility-check",
-      prompt: DEDUCTION_ELIGIBILITY_CHECK
-   },
-   {
-     icon: <TrendingUp className="w-6 h-6 text-white" />,
-     title: "Capital Gains Optimization",
-     description: "Optimize your capital gains tax through smart planning",
-     href: "/capital-gains-tax-optimization",
-      prompt: CAPITAL_GAINS_TAX_OPTIMIZATION
-   }
- ]
+const features = [
+  {
+    icon: <FileText className="w-6 h-6 text-white" />,
+    title: "ITR Form Recommendation",
+    description:
+      "Get personalized recommendations for your Income Tax Return forms",
+    href: "/itr-form-recommendation",
+    prompt: ITR_FORM_RECOMMENDATION,
+  },
+  {
+    icon: <PiggyBank className="w-6 h-6 text-white" />,
+    title: "Tax Saving Investment",
+    description:
+      "Discover the best tax-saving investment options for your profile",
+    href: "/tax-saving-investment-recommendation",
+    prompt: TAX_SAVING_INVESTMETN_RECOMMENDATION,
+  },
+  {
+    icon: <Calculator className="w-6 h-6 text-white" />,
+    title: "Tax Liability Calculation",
+    description:
+      "Calculate your tax liability accurately with our AI assistant",
+    href: "/tax-liability-calculation",
+    prompt: TAX_LIABILITY_CALCULATION,
+  },
+  {
+    icon: <CheckCircle className="w-6 h-6 text-white" />,
+    title: "Deduction Eligibility Check",
+    description:
+      "Check your eligibility for various tax deductions and exemptions",
+    href: "/deduction-eligibility-check",
+    prompt: DEDUCTION_ELIGIBILITY_CHECK,
+  },
+  {
+    icon: <TrendingUp className="w-6 h-6 text-white" />,
+    title: "Capital Gains Optimization",
+    description: "Optimize your capital gains tax through smart planning",
+    href: "/capital-gains-tax-optimization",
+    prompt: CAPITAL_GAINS_TAX_OPTIMIZATION,
+  },
+];
 
+export {
+  ITR_FORM_RECOMMENDATION,
+  TAX_SAVING_INVESTMETN_RECOMMENDATION,
+  faqs,
+  TAX_LIABILITY_CALCULATION,
+  DEDUCTION_ELIGIBILITY_CHECK,
+  CAPITAL_GAINS_TAX_OPTIMIZATION,
+  features,
+};
 
+type MenuProps = {
+  id: number;
+  label: string;
+  icon: React.ReactNode;
+  path: string;
+  section?: boolean;
+};
 
-
- export {
-   ITR_FORM_RECOMMENDATION,
-   TAX_SAVING_INVESTMETN_RECOMMENDATION,
-   faqs,
-   TAX_LIABILITY_CALCULATION,
-   DEDUCTION_ELIGIBILITY_CHECK,
-   CAPITAL_GAINS_TAX_OPTIMIZATION,
-   features
- };
+export const LANDING_PAGE_MENU: MenuProps[] = [
+  {
+    id: 0,
+    label: "Home",
+    icon: <Home size={18} />,
+    path: "/",
+    section: true,
+  },
+  {
+    id: 1,
+    label: "Chatbot",
+    icon: <BotIcon size={18} />,
+    path: "/chatbot",
+  },
+];
