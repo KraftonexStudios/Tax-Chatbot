@@ -163,7 +163,7 @@ export default function RecordingOverlay({
                     }}
                     className="text-white text-xl font-medium"
                   >
-                    {isRecording ? "Listening..." : "Click to start recording"}
+                    {isRecording ? "Click To Stop Recording" : "Click To Start Recording"}
                   </motion.p>
                 </motion.div>
               )}
