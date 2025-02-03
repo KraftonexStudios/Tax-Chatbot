@@ -6,7 +6,6 @@ import {
   PiggyBank,
   TrendingUp,
   Home,
-  CreditCard,
   BotIcon,
 } from "lucide-react";
 
