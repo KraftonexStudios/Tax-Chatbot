@@ -1,9 +1,7 @@
 import Image from "next/image";
-import GradientText from "../global/grdient-text";
 
-type Props = {};
 
-const DashboardSnippet = (props: Props) => {
+const DashboardSnippet = () => {
   return (
     <div className="relative py-20 mt-20">
       <div className="w-full h-3/6 absolute rounded-[50%] radial-blur opacity-40 mx-10 " />
