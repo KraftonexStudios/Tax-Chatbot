@@ -6,7 +6,7 @@ import { useChat } from "@/context/chatbot";
 const Option = ({modal}:{modal:string}) => {
   const { addMessage } = useChat();
 
-  const handleClick = (faq) => {
+  const handleClick = (faq:any) => {
     addMessage("user", faq.question,modal);
   };
   return (
