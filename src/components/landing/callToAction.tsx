@@ -11,15 +11,18 @@ const CallToAction = () => {
         className="text-[35px] md:text-[40px] lg:text-[55px] xl:text-[70px] 2xl:text-[80px] leading-tight font-semibold"
         element="H1"
       >
-        Bringing Communities <br className="md:hidden" /> Together
+        Smart AI Chatbot for <br className="md:hidden" />ITR Filing
       </GradientText>
       <p className="text-sm md:text-center text-left text-muted-foreground">
-        Grouple is a vibrant online community platform that empowers
+        Filing Income Tax Returns (ITR) can be a complex and confusing process
+        for many
         <br className="md:hidden" />
-        people to connect, <br className="hidden md:block" /> collaborate, and
-        cultivate meaningful
+        individuals, especially when choosing the correct ITR form based on
+        various income
+        <br className="hidden md:block" /> sources. To simplify this process, we
+        have developed
         <br className="md:hidden" />
-        relationships
+        an AI-powered chatbot.
       </p>
       <div className="flex mt-20 md:flex-row flex-col md:justify-center gap-5 md:mt-5 w-full">
         <Button
